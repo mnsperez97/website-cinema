@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="css/estilof.css">
+	<title>Actualizar</title>
+</head>
+<body>
+	<header>
+		<img class="banner" src="img/fondo/banner.jpg">
+		       <?php 
+    session_start();
+    $conexion = mysqli_connect("localhost","root","","peliculas");?>
+     
+         <nav>
+            <ul class="menu">
+                <li><a href= "index.php">Inicio</a></li> 
+          <?php   if(isset($_SESSION['username'])){         ?>        
+                
+                <li><a href="formulario.html">Agregar Pelicula</a></li>
+                <li><a href="actualizar.php">Modificar Pelicula</a></li>
+                <li><a href="eliminarm.php">Eliminar Pelicula</a></li>
+                <li><a href="tabla.php">Registros en BD</a></li>
+                
+                <?php } ?>
+                </li>
+            </ul>
+        </nav>
+	</header>
+	<article>
+	<form action="actualizar.php" method="post" enctype="multipart/form-data">
+		<label for="tit">Titulo:</label>
+		<input type="text" name="titulo" id="tit" placeholder="Escribe el título"><br>
+		<label for="fo">Foto:</label>
+		<input type="file" name="foto" id="fo"><br>
+		<label for="des">Descripcion:</label>
+		<textarea id="des" name="descripcion" placeholder="Escribe la descripción"></textarea><br>
+		<input type="submit"  name="Enviar">
+	</form></article>
+	<aside>
+        <h2>AQUI VA LA PUBLICIDAD</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </aside>
+    <footer>Cine Center Copyright© 2018</footer>
+</body>
+</html>
